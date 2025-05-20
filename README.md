@@ -33,7 +33,7 @@ dynamic anything = "Hello";
 anything = 100; // OK
 ```
 初期化されていない変数のデフォルト値は `null` 。  
-変数が有効な範囲は、基本的に波括弧 `{}` で囲まれたブロック内。
+変数が有効な範囲は、基本的に波括弧 `{}` で囲まれたブロック内。（ローカルスコープ）
 ```dart
 int count; // null
 
@@ -85,6 +85,25 @@ appName = "Another App"; // エラー
 `const` はコンパイル時に値が確定するため、ビルド時点で値が決まっている必要がある。
 ```dart
 const double pi = 3.14159;
+```
+<br>
+
+### 5. 関数
+関数の戻り値の型、関数名、パラメータリスト、関数本体で構成される。
+```dart
+int add(int a, int b) {
+  return a + b;
+}
+```
+関数本体が単一の式のみである場合、アロー構文で簡潔に書ける。
+```dart
+int multiply(int a, int b) => a * b;
+```
+戻り値が無い場合は `void` を指定する。
+```dart
+void printMessage(String message) {
+  print(message);
+}
 ```
 <br>
 
