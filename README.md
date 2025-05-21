@@ -3,13 +3,14 @@ Flutterは、Googleによって開発されたオープンソースのUIツー�
 単一のコードベースから、モバイル、ウェブ、デスクトップ向けのネイティブ同様のアプリケーションを構築できる。  
 [Flutter - Build apps for any screen](https://flutter.dev/)
 
-## Dart文法
+## Dart文法  
 <details>
-<summary>展開して読む</summary>
+<summary>クリックして展開</summary>
 <br>
-
-### 1. 基本構造と実行  
-
+<details>
+<summary><strong>1. 基本構造と実行</strong></summary>
+<br>
+  
 Dartプログラムは `main()` 関数から実行が開始される。
 ```dart
 void main() {
@@ -19,8 +20,11 @@ void main() {
 コメントは `//`  複数行コメントは `/* ... */` で記述する。  
 Pythonとは違い、基本的には文の終わりに `;` を付ける。  
 Dartでは、全ての値がオブジェクトとして扱われる。（`Object` クラスを継承）  
+</details>
 
-### 2. 変数
+<details>
+<summary><strong>2. 変数</strong></summary>
+<br>
 
 `var` 型推論により変数の型が決定される。一度型が決定されると、異なる型の値は代入できない。  
 ```dart
@@ -47,9 +51,12 @@ int count; // null
 }
 print(n); // エラー
 ```
+</details>
 
-### 3. 基本型
-
+<details>
+<summary><strong>3. 基本型</strong></summary>
+<br>
+  
 数値型
 ```dart
 int integer = 123; // 整数
@@ -79,9 +86,12 @@ Map<String, int> ranks = {
   "Blue": 3
 };
 ```
+</details>
 
-### 4. 定数
-
+<details>
+<summary><strong>4. 定数</strong></summary>
+<br>
+  
 `final` は実行時に一度だけ値を代入でき、その後は変更できない。
 ```dart
 final String appName = "My Awesome App";
@@ -91,8 +101,11 @@ appName = "Another App"; // エラー
 ```dart
 const double pi = 3.14159;
 ```
+</details>
 
-### 5. 関数
+<details>
+<summary><strong>5. 関数</strong></summary>
+<br>
 
 関数の戻り値の型、関数名、パラメータリスト、関数本体で構成される。
 ```dart
@@ -130,8 +143,12 @@ var add = (int a, int b) {
   return a + b;
 };
 ```
+</details>
 
-### 6. 演算子
+<details>
+<summary><strong>6. 演算子</strong></summary>
+<br>
+
 * **算術演算子:** `+`, `-`, `*`, `/` (浮動小数点数除算), `~/` (整数除算), `%` (剰余)。
 * **代入演算子:** `=`, `+=`, `-=`, `*=`, `/=`, `~/=`, `%=`。
 * **null関連演算子:**
@@ -143,10 +160,12 @@ var add = (int a, int b) {
 * **型テスト演算子:**
     * `is`: オブジェクトが指定した型である場合に `true`。
     * `is!`: オブジェクトが指定した型でない場合に `true`。
- 
 
+</details>
 
-### 7. 制御フロー文
+<details>
+<summary><strong>7. 制御フロー文</strong></summary>
+<br>
 
 * **`if-else` 文:** 条件に基づいて処理を分岐する。
     ```dart
@@ -210,8 +229,11 @@ var add = (int a, int b) {
         print('Unknown command');
     }
     ```
+</details>
 
-### 8. 例外処理
+<details>
+<summary><strong>8. 例外処理</strong></summary>
+<br>
 
 予期しないエラーが発生した場合の処理を記述する。
 
@@ -238,8 +260,11 @@ var add = (int a, int b) {
       print('Cleanup actions.');
     }
     ```
+</details>
 
-### 9. クラス (オブジェクト指向)
+<details>
+<summary><strong>9. クラス（オブジェクト指向）</strong></summary>
+<br>
 
 Dartはクラスベースのオブジェクト指向言語。
 
@@ -339,8 +364,11 @@ Dartはクラスベースのオブジェクト指向言語。
       // DuckはSwimmerの機能を使える
     }
     ```
+</details>
 
-### 10. ライブラリとインポート
+<details>
+<summary><strong>10. ライブラリとインポート</strong></summary>
+<br>
 
 コードをモジュール化し、再利用するためにライブラリを使用する。
 
@@ -348,8 +376,11 @@ Dartはクラスベースのオブジェクト指向言語。
     * Dart標準ライブラリ: `import 'dart:math';`
     * パッケージ (Pubリポジトリから): `import 'package:http/http.dart' as http;` (`as` でプレフィックスを指定可能)
     * ローカルファイル: `import 'src/my_utility.dart';` (相対パスまたは絶対パス)
+</details>
 
-### 11. 非同期処理
+<details>
+<summary><strong>11. 非同期処理</strong></summary>
+<br>
 
 時間のかかる処理（ネットワーク通信、ファイルI/Oなど）を、メインの処理をブロックせずに行うための仕組み。
 
@@ -370,13 +401,14 @@ Dartはクラスベースのオブジェクト指向言語。
     }
     ```
 * **`Stream`:** 一連の非同期イベントを扱うためのオブジェクト。データが断続的に複数回送られてくるような場合（ユーザーの連続したクリック、ファイルの読み込みなど）に使用する。
-
-
+</details>
 </details>
 
 ## Flutter環境構築
 
+
 ## Flutter Tips
+
 
 ## 執筆したFlutterに関する記事
 FlutterでSupabase Authを使ってGoogle認証を実装する  
