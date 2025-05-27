@@ -4,7 +4,7 @@
 - [Dart文法](#dart文法)
 - [Flutter環境構築](#flutter環境構築)
 - [Flutterのプロジェクトを作成する](#flutterのプロジェクトを作成する)
-- [main.dartについて](#main.dartについて)
+- [main.dartについて](#maindartについて)
 - [ウィジェットの基本レイアウト](#ウィジェットの基本レイアウト)
 - [執筆したFlutterに関する記事](#執筆したFlutterに関する記事)
 - [参考文献](#参考文献)  
