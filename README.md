@@ -1,3 +1,12 @@
+# Flutter Tips
+## 目次
+- [Flutterとは](#flutterとは)
+- [Dart文法](#dart文法)
+- [Flutter環境構築](#flutter環境構築)
+- [Flutterのプロジェクトを作成する](#flutterのプロジェクトを作成する)
+- [執筆したFlutterに関する記事](執筆したFlutterに関する記事)
+- [参考文献](#参考文献)  
+
 ## Flutterとは
 Flutterは、Googleによって開発されたオープンソースのUIツールキット。  
 単一のコードベースから、モバイル、ウェブ、デスクトップ向けのネイティブ同様のアプリケーションを構築できる。  
@@ -405,9 +414,54 @@ Dartはクラスベースのオブジェクト指向言語。
 </details>
 
 ## Flutter環境構築
+<details>
+<summary>クリックして展開</summary>
+</details>
 
+## Flutterのプロジェクトを作成する
+- ### VScodeの場合
+  コマンドパレット（`Ctrl` + `Shift` + `P`）で `flutter` と入力。  
+  `Flutter: New Project` を選択し、`Application` を選ぶ。  
+  プロジェクトの保存先を指定し、名前を設定したらプロジェクトが生成される。  
 
-## Flutter Tips
+- ### コマンドの場合
+  プロジェクトを作りたいディレクトリで `flutter create <プロジェクト名>` と入力。
+
+> 作成されたプロジェクトには様々なフォルダが生成される。  
+`lib` フォルダ内にある `main.dart` というスクリプトを変更していく。
+
+## main.dartについて
+最初にFlutterアプリのUIウィジェットがまとめられているパッケージをインポートしている。
+```dart
+import 'package:flutter/material.dart';
+```
+main関数が、アプリを起動する際に呼び出される関数。  
+runAppはアプリを起動する処理で、引数に指定されたウィジェットを表示させる。
+```dart
+void main() {
+  runApp(const myApp());
+}
+```
+MyAppクラスは状態を保存しない `StatelessWidget` を継承している。  
+`MaterialApp` のインスタンスを生成して返している。  
+ここではタイトル名、テーマの設定、最初に表示するウィジェットに `MyHomePage` が指定されている。
+```dart
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      ),
+      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+    );
+  }
+}
+```
+
 
 
 ## 執筆したFlutterに関する記事
@@ -415,4 +469,6 @@ FlutterでSupabase Authを使ってGoogle認証を実装する
 https://zenn.dev/saisana299/articles/5f9d2426896423
 
 ## 参考文献  
-掌田津耶乃 著. マルチプラットフォーム対応最新フレームワークFlutter 3入門, 秀和システム, 2022.12. 978-4-7980-6852-7. https://ndlsearch.ndl.go.jp/books/R100000002-I032482071
+掌田津耶乃 著. マルチプラットフォーム対応最新フレームワークFlutter 3入門, 秀和システム, 2022.12. 978-4-7980-6852-7. https://ndlsearch.ndl.go.jp/books/R100000002-I032482071  
+<br>
+https://docs.flutter.dev/tools/vs-code  
