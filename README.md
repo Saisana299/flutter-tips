@@ -1,4 +1,6 @@
 # Flutter Tips
+メモ程度の内容ですので正確な情報については要確認です。
+
 ## 目次
 - [Flutterとは](#flutterとは)
 - [Dart文法](#dart文法)
