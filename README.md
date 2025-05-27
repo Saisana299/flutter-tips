@@ -4,7 +4,9 @@
 - [Dart文法](#dart文法)
 - [Flutter環境構築](#flutter環境構築)
 - [Flutterのプロジェクトを作成する](#flutterのプロジェクトを作成する)
-- [執筆したFlutterに関する記事](執筆したFlutterに関する記事)
+- [main.dartについて](#main.dartについて)
+- [ウィジェットの基本レイアウト](#ウィジェットの基本レイアウト)
+- [執筆したFlutterに関する記事](#執筆したFlutterに関する記事)
 - [参考文献](#参考文献)  
 
 ## Flutterとは
@@ -431,20 +433,24 @@ Dartはクラスベースのオブジェクト指向言語。
 `lib` フォルダ内にある `main.dart` というスクリプトを変更していく。
 
 ## main.dartについて
-最初にFlutterアプリのUIウィジェットがまとめられているパッケージをインポートしている。
+最初にFlutterアプリのUIウィジェットがまとめられているパッケージをインポートしている。  
+`MaterialApp` や `Scaffold` などを利用するためにも必要。
 ```dart
 import 'package:flutter/material.dart';
 ```
 main関数が、アプリを起動する際に呼び出される関数。  
-runAppはアプリを起動する処理で、引数に指定されたウィジェットを表示させる。
+`runApp` はFlutterに表示してほしいウィジェットを伝える命令。
 ```dart
 void main() {
   runApp(const myApp());
 }
 ```
 MyAppクラスは状態を保存しない `StatelessWidget` を継承している。  
-`MaterialApp` のインスタンスを生成して返している。  
-ここではタイトル名、テーマの設定、最初に表示するウィジェットに `MyHomePage` が指定されている。
+これは一度表示されら基本的に内容が変わることはない。  
+<br>
+`build` はMyAppウィジェットがどのように表示されるかを定義するメソッド。  
+`MaterialApp` で基本的な設定をしている。  
+ここでは home に `MyHomePage` を指定しているため、アプリを起動して最初に表示されるのは MyHomePage の画面となる。
 ```dart
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -461,8 +467,63 @@ class MyApp extends StatelessWidget {
   }
 }
 ```
+MyHomePage は内部に状態を持つ `StatefulWidget` を継承していて、ユーザーの操作やデータの変更によって画面の内容が変わる可能性がある。  
+```dart
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key, required this.title});
 
+  final String title;
 
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+```
+`build` ではアプリの見た目などを定義している。  
+`Scaffold` は土台という意味があり、引数にappBar、body、その他の要素を設定して画面を構成していく。  
+<br>
+このコードでは、`FloatingActionButton` が押されたら `_incrementCounter` 関数が呼ばれ、`_counter` が加算される。  
+`setState` によって変数の値が変更されるたびに、`build` が実行されて画面の内容が更新される。
+
+```dart
+class _MyHomePageState extends State<MyHomePage> {
+  int _counter = 0; // ① 状態 (State)
+
+  void _incrementCounter() { // ② 状態を変更するメソッド
+    setState(() {
+      _counter++;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) { // ③ UIを構築するメソッド
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: Text(widget.title), // ④ MyHomePageからtitleを受け取る
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            const Text('You have pushed the button this many times:'),
+            Text(
+              '$_counter', // ⑤ 状態を表示
+              style: Theme.of(context).textTheme.headlineMedium,
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _incrementCounter, // ⑥ ボタンが押されたら②を呼ぶ
+        tooltip: 'Increment',
+        child: const Icon(Icons.add),
+      ),
+    );
+  }
+}
+```
+
+## ウィジェットの基本レイアウト
 
 ## 執筆したFlutterに関する記事
 FlutterでSupabase Authを使ってGoogle認証を実装する  
