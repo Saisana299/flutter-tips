@@ -530,63 +530,63 @@ class _MyHomePageState extends State<MyHomePage> {
 ## ウィジェット関連
 画面のレイアウト作成にはflutterstudioを活用するといい。  
 
-Flutter Studio  
+> Flutter Studio  
 https://flutterstudio.app/
 
 ## ボタンウィジェット
-- **TextButton**  
-  デフォルトでは文字が表示されるだけのボタン。  
-  `onPressed` でボタンをクリックした時の処理を指定できる。  
-  `child` は内部に組み込むウィジェット。
-  ```dart
-  TextButton(
-    onPressed: 関数,
-    child: ウィジェット
-  )
-  ```
+[**TextButton**](https://api.flutter.dev/flutter/material/TextButton-class.html)  
+デフォルトでは文字が表示されるだけのボタン。  
+`onPressed` でボタンをクリックした時の処理を指定できる。  
+`child` は内部に組み込むウィジェット。
+```dart
+TextButton(
+  onPressed: 関数,
+  child: ウィジェット
+)
+```
 
-- **ElevatedButton**  
-  少し立体的なボタン。他はTextButtonと変わらない。
+[**ElevatedButton**](https://api.flutter.dev/flutter/material/ElevatedButton-class.html)  
+少し立体的なボタン。他はTextButtonと変わらない。
 
-- **IconButton**  
-  アイコンをボタンとして押せる機能を追加したウィジェット。  
-  `icon` は必須のパラメータで、表示する画像を指定する。
-  ```dart
-  IconButton(
-    icon: const Icon(Icons.insert_emotion),
-    iconSize: 100.0,
-    color: Colors.red,
-    onPressed: buttonPressed,
-  )
-  ```
+[**IconButton**](https://api.flutter.dev/flutter/material/IconButton-class.html)  
+アイコンをボタンとして押せる機能を追加したウィジェット。  
+`icon` は必須のパラメータで、表示する画像を指定する。
+```dart
+IconButton(
+  icon: const Icon(Icons.insert_emotion),
+  iconSize: 100.0,
+  color: Colors.red,
+  onPressed: buttonPressed,
+)
+```
 
-- **FloatingActionButton**  
-  右下に常に表示しておくボタンなどに使用されているウィジェット。  
-  ```dart
-  FloatingActionButton(
-    child: Icon(Icons.android),
-    onPressed: buttonPressed
-  ),
-  ```
+[**FloatingActionButton**](https://api.flutter.dev/flutter/material/FloatingActionButton-class.html)  
+右下に常に表示しておくボタンなどに使用されているウィジェット。  
+```dart
+FloatingActionButton(
+  child: Icon(Icons.android),
+  onPressed: buttonPressed
+),
+```
 
-- **RawMaterialButton**  
-  テーマの影響を受けない全て初期状態のボタン。  
-  色などは自分で設定して利用する。  
-  ```dart
-  RawMaterialButton(
-    fillColor: Colors.white,
-    elevation: 10.0,
-    padding: EdgeInsets.all(10.0),
-    child: Text(
-      "Push me!",
-      style: TextStyle(frontSize:32.0,
-        color: const Color(0xff000000),
-        fontWeight: FontWeight.w400,
-        fontFamily: "Roboto"
-      ),
+[**RawMaterialButton**](https://api.flutter.dev/flutter/material/RawMaterialButton-class.html)  
+テーマの影響を受けない全て初期状態のボタン。  
+色などは自分で設定して利用する。  
+```dart
+RawMaterialButton(
+  fillColor: Colors.white,
+  elevation: 10.0,
+  padding: EdgeInsets.all(10.0),
+  child: Text(
+    "Push me!",
+    style: TextStyle(frontSize:32.0,
+      color: const Color(0xff000000),
+      fontWeight: FontWeight.w400,
+      fontFamily: "Roboto"
     ),
   ),
-  ```
+),
+```
 
 ## 入力系ウィジェット
 ```dart
@@ -597,6 +597,7 @@ FlutterでSupabase Authを使ってGoogle認証を実装する
 https://zenn.dev/saisana299/articles/5f9d2426896423
 
 ## 参考文献  
-掌田津耶乃 著. マルチプラットフォーム対応最新フレームワークFlutter 3入門, 秀和システム, 2022.12. 978-4-7980-6852-7. https://ndlsearch.ndl.go.jp/books/R100000002-I032482071  
-<br>
-https://docs.flutter.dev/tools/vs-code  
+> 掌田津耶乃 著. マルチプラットフォーム対応最新フレームワークFlutter 3入門, 秀和システム, 2022.12. 978-4-7980-6852-7. https://ndlsearch.ndl.go.jp/books/R100000002-I032482071  
+
+> Flutter documentation  
+https://docs.flutter.dev/
