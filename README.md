@@ -9,6 +9,7 @@
 - [main.dartについて](#maindartについて)
 - [ウィジェット関連](#ウィジェット関連)
   - [ボタンウィジェット](#ボタンウィジェット)
+  - [入力系ウィジェット](#入力系ウィジェット)
 - [執筆したFlutterに関する記事](#執筆したFlutterに関する記事)
 - [参考文献](#参考文献)  
 
@@ -533,59 +534,59 @@ Flutter Studio
 https://flutterstudio.app/
 
 ## ボタンウィジェット
-**TextButton**  
-デフォルトでは文字が表示されるだけのボタン。  
-`onPressed` でボタンをクリックした時の処理を指定できる。  
-`child` は内部に組み込むウィジェット。
-```dart
-TextButton(
-  onPressed: 関数,
-  child: ウィジェット
-)
-```
+- **TextButton**  
+  デフォルトでは文字が表示されるだけのボタン。  
+  `onPressed` でボタンをクリックした時の処理を指定できる。  
+  `child` は内部に組み込むウィジェット。
+  ```dart
+  TextButton(
+    onPressed: 関数,
+    child: ウィジェット
+  )
+  ```
 
-**ElevatedButton**  
-少し立体的なボタン。他はTextButtonと変わらない。
+- **ElevatedButton**  
+  少し立体的なボタン。他はTextButtonと変わらない。
 
-**IconButton**  
-アイコンをボタンとして押せる機能を追加したウィジェット。  
-`icon` は必須のパラメータで、表示する画像を指定する。
-```dart
-IconButton(
-  icon: const Icon(Icons.insert_emotion),
-  iconSize: 100.0,
-  color: Colors.red,
-  onPressed: buttonPressed,
-)
-```
+- **IconButton**  
+  アイコンをボタンとして押せる機能を追加したウィジェット。  
+  `icon` は必須のパラメータで、表示する画像を指定する。
+  ```dart
+  IconButton(
+    icon: const Icon(Icons.insert_emotion),
+    iconSize: 100.0,
+    color: Colors.red,
+    onPressed: buttonPressed,
+  )
+  ```
 
-**FloatingActionButton**  
-右下に常に表示しておくボタンなどに使用されているウィジェット。  
-```dart
-FloatingActionButton(
-  child: Icon(Icons.android),
-  onPressed: buttonPressed
-),
-```
+- **FloatingActionButton**  
+  右下に常に表示しておくボタンなどに使用されているウィジェット。  
+  ```dart
+  FloatingActionButton(
+    child: Icon(Icons.android),
+    onPressed: buttonPressed
+  ),
+  ```
 
-**RawMaterialButton**  
-テーマの影響を受けない全て初期状態のボタン。  
-色などは自分で設定して利用する。  
-```dart
-RawMaterialButton(
-  fillColor: Colors.white,
-  elevation: 10.0,
-  padding: EdgeInsets.all(10.0),
-  child: Text(
-    "Push me!",
-    style: TextStyle(frontSize:32.0,
-      color: const Color(0xff000000),
-      fontWeight: FontWeight.w400,
-      fontFamily: "Roboto"
+- **RawMaterialButton**  
+  テーマの影響を受けない全て初期状態のボタン。  
+  色などは自分で設定して利用する。  
+  ```dart
+  RawMaterialButton(
+    fillColor: Colors.white,
+    elevation: 10.0,
+    padding: EdgeInsets.all(10.0),
+    child: Text(
+      "Push me!",
+      style: TextStyle(frontSize:32.0,
+        color: const Color(0xff000000),
+        fontWeight: FontWeight.w400,
+        fontFamily: "Roboto"
+      ),
     ),
   ),
-),
-```
+  ```
 
 ## 入力系ウィジェット
 ```dart
