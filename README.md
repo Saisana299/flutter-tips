@@ -534,7 +534,8 @@ class _MyHomePageState extends State<MyHomePage> {
 https://flutterstudio.app/
 
 ## ボタンウィジェット
-[**TextButton**](https://api.flutter.dev/flutter/material/TextButton-class.html)  
+**TextButton**  
+https://api.flutter.dev/flutter/material/TextButton-class.html  
 デフォルトでは文字が表示されるだけのボタン。  
 `onPressed` でボタンをクリックした時の処理を指定できる。  
 `child` は内部に組み込むウィジェット。
@@ -545,10 +546,12 @@ TextButton(
 )
 ```
 
-[**ElevatedButton**](https://api.flutter.dev/flutter/material/ElevatedButton-class.html)  
+**ElevatedButton**  
+https://api.flutter.dev/flutter/material/ElevatedButton-class.html  
 少し立体的なボタン。他はTextButtonと変わらない。
 
-[**IconButton**](https://api.flutter.dev/flutter/material/IconButton-class.html)  
+**IconButton**  
+https://api.flutter.dev/flutter/material/IconButton-class.html  
 アイコンをボタンとして押せる機能を追加したウィジェット。  
 `icon` は必須のパラメータで、表示する画像を指定する。
 ```dart
@@ -560,7 +563,8 @@ IconButton(
 )
 ```
 
-[**FloatingActionButton**](https://api.flutter.dev/flutter/material/FloatingActionButton-class.html)  
+**FloatingActionButton**  
+https://api.flutter.dev/flutter/material/FloatingActionButton-class.html  
 右下に常に表示しておくボタンなどに使用されているウィジェット。  
 ```dart
 FloatingActionButton(
@@ -569,7 +573,8 @@ FloatingActionButton(
 ),
 ```
 
-[**RawMaterialButton**](https://api.flutter.dev/flutter/material/RawMaterialButton-class.html)  
+**RawMaterialButton**  
+https://api.flutter.dev/flutter/material/RawMaterialButton-class.html  
 テーマの影響を受けない全て初期状態のボタン。  
 色などは自分で設定して利用する。  
 ```dart
@@ -593,7 +598,7 @@ RawMaterialButton(
 ```
 
 ## 執筆したFlutterに関する記事
-FlutterでSupabase Authを使ってGoogle認証を実装する  
+> FlutterでSupabase Authを使ってGoogle認証を実装する  
 https://zenn.dev/saisana299/articles/5f9d2426896423
 
 ## 参考文献  
