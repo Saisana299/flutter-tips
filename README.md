@@ -422,6 +422,15 @@ Dartはクラスベースのオブジェクト指向言語。
 ## Flutter環境構築
 <details>
 <summary>クリックして展開</summary>
+Visual Studio Code を使用して構築する。
+
+
+1. 拡張機能を導入する  
+https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter
+2. メッセージでFlutterSDKの導入を促されるのでそれに従う
+
+詳細は公式のDocsを参照: https://docs.flutter.dev/get-started/install/windows/mobile#prompt-vs-code-to-install-flutter
+
 </details>
 
 ## Flutterのプロジェクトを作成する
@@ -589,16 +598,27 @@ RawMaterialButton(
 ```
 
 ## 入力系ウィジェット
-```dart
-
-```
 ### [TextField](https://api.flutter.dev/flutter/material/TextField-class.html)
+
+
 ### [Checkbox](https://api.flutter.dev/flutter/material/Checkbox-class.html)
+
+
 ### [Switch](https://api.flutter.dev/flutter/material/Switch-class.html)
+
+
 ### [Radio](https://api.flutter.dev/flutter/material/Radio-class.html)
+
+
 ### [DropdownButton](https://api.flutter.dev/flutter/material/DropdownButton-class.html)
+
+
 ### [PopupMenuButton](https://api.flutter.dev/flutter/material/PopupMenuButton-class.html)
+
+
 ### [Slider](https://api.flutter.dev/flutter/material/Slider-class.html)
+
+
 
 ## ナビゲーション・ルーティング
 
