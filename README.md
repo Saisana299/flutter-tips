@@ -10,6 +10,8 @@
 - [ウィジェット関連](#ウィジェット関連)
   - [ボタンウィジェット](#ボタンウィジェット)
   - [入力系ウィジェット](#入力系ウィジェット)
+  - [アラートとダイアログ](#アラートとダイアログ)
+- [ナビゲーション・ルーティング](#ナビゲーション・ルーティング)
 - [執筆したFlutterに関する記事](#執筆したFlutterに関する記事)
 - [参考文献](#参考文献)  
 
@@ -599,25 +601,162 @@ RawMaterialButton(
 
 ## 入力系ウィジェット
 ### [TextField](https://api.flutter.dev/flutter/material/TextField-class.html)
-
+テキストを一行入力するためのウィジェット。フォームや検索バーなどで広く利用される。  
+`controller` を用いて入力内容を管理し、`decoration` で見た目をカスタマイズすることが可能。  
+todo
+```dart
+const TextField(
+  decoration: InputDecoration(
+    border: OutlineInputBorder(),
+    labelText: '名前を入力',
+  ),
+)
+```
 
 ### [Checkbox](https://api.flutter.dev/flutter/material/Checkbox-class.html)
-
+オンとオフ、二つの状態を持つチェックボックス。  
+利用規約への同意や、複数の選択肢からいくつかを選ぶ場面で使われる。  
+`value` でチェック状態を、`onChanged` で状態の変更を処理する。
+```dart
+Checkbox(
+  value: true,
+  onChanged: (bool? newValue) {
+    // 状態が変更されたときの処理
+  },
+)
+```
 
 ### [Switch](https://api.flutter.dev/flutter/material/Switch-class.html)
-
+オンとオフを切り替えるスイッチ。設定画面などで、特定の機能の有効・無効を切り替えるのに適している。  
+基本的な利用方法は `Checkbox` と同様。
+```dart
+Switch(
+  value: false,
+  onChanged: (bool newValue) {
+    // スイッチが切り替わったときの処理
+  },
+)
+```
 
 ### [Radio](https://api.flutter.dev/flutter/material/Radio-class.html)
-
+複数の選択肢から一つだけを選択するためのラジオボタン。  
+`groupValue` で選択されている値を管理し、`value` に各ボタン固有の値を設定する。
+```dart
+Radio(
+  value: 1,
+  groupValue: 1, // 現在選択されている値
+  onChanged: (int? value) {
+    // 選択が変更されたときの処理
+  },
+)
+```
 
 ### [DropdownButton](https://api.flutter.dev/flutter/material/DropdownButton-class.html)
-
+タップすると選択肢のリストがドロップダウン形式で表示されるボタン。  
+項目が多い場合にスペースを節約できるという利点がある。
+```dart
+DropdownButton<String>(
+  value: 'Apple',
+  items: <String>['Apple', 'Banana', 'Grape', 'Orange']
+      .map<DropdownMenuItem<String>>((String value) {
+    return DropdownMenuItem<String>(
+      value: value,
+      child: Text(value),
+    );
+  }).toList(),
+  onChanged: (String? newValue) {
+    // 新しい項目が選択されたときの処理
+  },
+)
+```
 
 ### [PopupMenuButton](https://api.flutter.dev/flutter/material/PopupMenuButton-class.html)
-
+ボタン（通常は三点リーダーのアイコン）をタップすると、メニュー項目がポップアップ表示されるウィジェット。  
+限られた画面スペースに多くの操作を格納したい場合に有用。
+```dart
+PopupMenuButton<String>(
+  onSelected: (String result) {
+    // メニュー項目が選択されたときの処理
+  },
+  itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+    const PopupMenuItem<String>(
+      value: 'Profile',
+      child: Text('プロフィール'),
+    ),
+    const PopupMenuItem<String>(
+      value: 'Settings',
+      child: Text('設定'),
+    ),
+  ],
+)
+```
 
 ### [Slider](https://api.flutter.dev/flutter/material/Slider-class.html)
+スライダーをドラッグすることで、一定範囲の値を連続的に選択できるウィジェット。  
+音量や明るさの調整といった、直感的な数値入力に用いられる。
+```dart
+Slider(
+  value: 0.5,
+  min: 0.0,
+  max: 1.0,
+  onChanged: (double newValue) {
+    // 値が変更されたときの処理
+  },
+)
+```
 
+## アラートとダイアログ
+### [showDialog]()
+`showDialog` は、現在の画面コンテンツの上にダイアログを表示するための関数。  
+`builder` プロパティに関数（通常は `AlertDialog` や `SimpleDialog` などのダイアログウィジェットを返すもの）を渡して使用する。  
+
+ユーザーの操作を要求するモーダル（画面を覆う）表示に不可欠で、背後のUI操作を一時的に停止させる役割を持つ。
+```dart
+showDialog(
+  context: context,
+  builder: (BuildContext context) {
+    return AlertDialog(
+      title: const Text('アラート'),
+      content: const Text('これはAlertDialogのサンプルです。'),
+      actions: <Widget>[
+        TextButton(
+          child: const Text('OK'),
+          onPressed: () {
+            Navigator.of(context).pop(); // ダイアログを閉じる
+          },
+        ),
+      ],
+    );
+  },
+);
+```
+
+### [SimpleDialog]()
+ユーザーに複数の単純な選択肢を提示するためのダイアログ。  
+通常、タイトルとリスト形式の `SimpleDialogOption` ウィジェットを表示する。  
+ユーザーがオプションをタップするとダイアログが閉じられ、選択に応じたアクションが実行される。
+
+複雑な入力が不要で、明確な選択肢をいくつか提示したい場合に最適。
+```dart
+showDialog(
+  context: context,
+  builder: (BuildContext context) {
+    return SimpleDialog(
+      title: const Text('アカウントを選択'),
+      children: <Widget>[
+        SimpleDialogOption(
+          onPressed: () { Navigator.pop(context, 'user1@example.com'); },
+          child: const Text('user1@example.com'),
+        ),
+        SimpleDialogOption(
+          onPressed: () { Navigator.pop(context, 'user2@example.com'); },
+          child: const Text('user2@example.com'),
+        ),
+      ],
+    );
+  },
+);
+```
 
 
 ## ナビゲーション・ルーティング
