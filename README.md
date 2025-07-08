@@ -706,7 +706,7 @@ Slider(
 ```
 
 ## アラートとダイアログ
-### [showDialog]()
+### [showDialog](https://api.flutter.dev/flutter/material/showDialog.html)
 `showDialog` は、現在の画面コンテンツの上にダイアログを表示するための関数。  
 `builder` プロパティに関数（通常は `AlertDialog` や `SimpleDialog` などのダイアログウィジェットを返すもの）を渡して使用する。  
 
@@ -731,7 +731,7 @@ showDialog(
 );
 ```
 
-### [SimpleDialog]()
+### [SimpleDialog](https://api.flutter.dev/flutter/material/SimpleDialog-class.html)
 ユーザーに複数の単純な選択肢を提示するためのダイアログ。  
 通常、タイトルとリスト形式の `SimpleDialogOption` ウィジェットを表示する。  
 ユーザーがオプションをタップするとダイアログが閉じられ、選択に応じたアクションが実行される。
@@ -758,8 +758,39 @@ showDialog(
 );
 ```
 
-
 ## ナビゲーション・ルーティング
+### ① 基本的なナビゲーション (Navigator.push / pop)
+最もシンプルで直接的な画面遷移の方法。  
+`push`で新しい画面をスタックの一番上に重ねて次の画面へ移動。
+```dart
+// SecondScreenへ移動する
+Navigator.push(
+  context,
+  MaterialPageRoute(builder: (context) => const SecondScreen()),
+);
+```
+`pop`で一番上の画面を取り除いて前の画面に戻る。
+```dart
+// 現在の画面を閉じて前の画面に戻る
+Navigator.pop(context);
+```
+
+### ② 名前付きルート (Named Routes)
+各画面（ルート）に特定の名前（例: /home, /details）を割り当てて管理する方法。  
+アプリ全体で利用するルートをあらかじめ `MaterialApp` に定義しておくことで、コードの可読性と保守性を高める。
+```dart
+MaterialApp(
+  title: 'Named Routes Demo',
+  initialRoute: '/', // アプリ起動時に表示する最初のルート
+  routes: {
+    '/': (context) => const HomeScreen(),
+    '/details': (context) => const DetailsScreen(),
+  },
+);
+
+// '/details' という名前のルートに移動する
+Navigator.pushNamed(context, '/details');
+```
 
 ## 執筆したFlutterに関する記事
 > FlutterでSupabase Authを使ってGoogle認証を実装する  
