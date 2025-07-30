@@ -12,6 +12,7 @@
   - [入力系ウィジェット](#入力系ウィジェット)
   - [アラートとダイアログ](#アラートとダイアログ)
 - [ナビゲーション・ルーティング](#ナビゲーションルーティング)
+- [その他](#その他)
 - [執筆したFlutterに関する記事](#執筆したFlutterに関する記事)
 - [参考文献](#参考文献)  
 
@@ -791,6 +792,38 @@ MaterialApp(
 // '/details' という名前のルートに移動する
 Navigator.pushNamed(context, '/details');
 ```
+
+## その他
+### Scaffoldとは
+https://zenn.dev/flutteruniv_dev/articles/7d7c0b1e67d8cb  
+
+### ウィジェットを作成するときの必須事項
+```dart
+class ClassName extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Widget;
+  }
+}
+```
+
+### ARGB形式による色の指定
+```dart
+Color(0xffff0304)
+Color.fromARGB(255, 255, 3, 4)
+```
+
+### 位置調整関連
+**Center**: 上下中央揃え  
+**Container**: 余白や配置場所など細かい調整ができる  
+**Column**: 縦に並べて表示する  
+`MainAxisAlignment`: 上下の位置  
+`CrossAxisAlignment`: 左右の位置  
+※Rowでは逆になる  
+
+### カスケード記法
+https://qiita.com/isekiryu/items/be12fe175b8b46101da7  
+
 
 ## 執筆したFlutterに関する記事
 > FlutterでSupabase Authを使ってGoogle認証を実装する  
